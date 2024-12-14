@@ -50,12 +50,28 @@ for model in models:
 #
 # Displaying test results
 #
+
 plt.figure(figsize = (20, 10))
 tree_vis = plot_tree(
     models[2],
     feature_names = dataset.feature_names,
     class_names = ['Tak', "Nie"],
-    fontsize = 8
+    fontsize = 8,
+    filled = True
 )
+
+plt.figure(figsize = (20, 10))
+plt.bar(["kNN", "Maszyna Wektorow Nosnych", "Drzewo Decyzyjne"], accuracies)
+plt.title("Dokladnosci modeli")
+plt.xlabel("Model")
+plt.ylabel("Dokladnosc")
+
+# For testing purposes print confusion_matrices
+print("kNN")
+print(confusion_matricies[0])
+print("SVM")
+print(confusion_matricies[1])
+print("DT")
+print(confusion_matricies[2])
 
 plt.show()
